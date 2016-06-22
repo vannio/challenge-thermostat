@@ -65,4 +65,33 @@ describe('Feature test', function(){
       expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
     });
   });
+  // You can reset the temperature to 20 by hitting the reset button
+  describe('reseting temperature', function(){
+    it('can be reset to 20 degrees', function(){
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      thermostat.reset();
+      expect(thermostat.temperature()).toEqual(20);
+    });
+  });
+  // The thermostat should colour the display based on energy usage -
+  // < 18 is green, < 25 is yellow, otherwise red
+  describe('thermostat output changes based on temperature', function(){
+    it('outputs "green" when temperature is less than 18', function(){
+      thermostat.decrease();
+      thermostat.decrease();
+      thermostat.decrease();
+      expect(thermostat.colour()).toEqual("green");
+    });
+    it('outputs "yellow" when temperature is between than 18 and 24', function(){
+      expect(thermostat.colour()).toEqual("yellow");
+    });
+    it('outputs "red" when temperature is greater than 24', function(){
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      expect(thermostat.colour()).toEqual("red");
+    });
+  });
 });
