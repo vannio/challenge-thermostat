@@ -16,13 +16,14 @@ button {
 	background-color: transparent;
 	border-radius: 5px;
 	padding: 5px 8px;
-	transition: border-color 0.5s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
 }
 
 button:hover,
 button:active,
 button:focus {
-	border-color: #00cc99; 
+	border-color: #00cc99;
+	outline: none;
 }
 
 .wrapper {
@@ -86,41 +87,3 @@ button:focus {
 .thermostat-controls {
 	flex: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

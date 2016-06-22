@@ -35,5 +35,6 @@ $(document).ready(function(){
   $('#input-reset').on('click', function() {
     thermostat.reset();
     updateTemperatureOutput();
+    updatePowerSavingMode();
   });
 });
