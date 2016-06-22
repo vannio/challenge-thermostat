@@ -20,4 +20,16 @@ describe('Thermostat', function(){
     });
   });
 
+  describe('#decrease', function(){
+    it('decreases temperature by 1', function(){
+      thermostat.decrease();
+      expect(thermostat.temperature()).toEqual(19);
+    });
+    it('it cannot decrease below minimum temperature', function(){
+      for(var i = 0; i < 10; i++) {
+        thermostat.decrease();
+      }
+      expect(function(){ thermostat.decrease(); }).toThrowError('Cannot decrease below minimum temperature');
+    });
+  });
 });
