@@ -29,6 +29,13 @@ describe('Thermostat', function(){
         expect(thermostat.temperature).toEqual(expectedTemperature);
       });
 
+      it('cannot decrease lower than MIN_TEMPERATURE', function(){
+        for (var i = 1; i <= 100; i++) {
+          thermostat.decreaseTemperature();
+        }
+        expect(thermostat.temperature).toEqual(thermostat.MIN_TEMPERATURE);
+      });
+
     });
 
 	});
