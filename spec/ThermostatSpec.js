@@ -32,4 +32,14 @@ describe('Thermostat', function(){
       expect(function(){ thermostat.decrease(); }).toThrowError('Cannot decrease below minimum temperature');
     });
   });
+
+  describe('#powerSave,', function(){
+    it('sets the maximum temperature to 25 degrees', function(){
+      thermostat.powerSaveOn();
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
+    });
+  });
 });

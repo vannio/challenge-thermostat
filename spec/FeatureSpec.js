@@ -35,4 +35,15 @@ describe('Feature test', function(){
       expect(function(){ thermostat.decrease(); }).toThrowError('Cannot decrease below minimum temperature');
     });
   });
+
+  // If power saving mode is on, the maximum temperature is 25 degrees
+  describe('with power saving mode on,', function(){
+    it('has a maximum temperature of 25 degrees', function(){
+      thermostat.powerSaveOn();
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
+    });
+  });
 });
