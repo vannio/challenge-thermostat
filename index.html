@@ -8,27 +8,23 @@
     <link type="text/css" rel="stylesheet" href="./styles/stylesheet.css">
   </head>
   <body>
-    <div class="wrapper">
+    <div class="main">
       <div class="thermostat-status">
-        Temperature: <span id="output-temperature"></span>&#x2103;<br>
-        Power Saving Mode: <button id="input-toggle"></button>
+        <p class="thermostatus-powersaving">Power Saving Mode<br> <button id="input-toggle"></button></p>
       </div>
 
-      <div class="thermostat-main">
-          
-        <div class="thermometer">
-          <div id="thermometer-bar"></div>
-        </div>
-
-        <div class="thermostat-controls">
-          <button id="input-increase">Up</button>
-          <button id="input-decrease">Down</button>
-        </div>
-
+      <div class="thermostat-controls">
+        <button id="input-increase">Up</button>
+        <button id="input-decrease">Down</button>
+        <button id="input-reset">Reset</button>
       </div>
+    </div>
 
-      <button id="input-reset">Reset</button>
-
+    <div class="sidebar">
+      <div class="thermometer">
+        <div id="thermometer-bar"></div>
+      </div>
+      <p class="thermostatus-temp" id="output-temperature"></p>
     </div>
   </body>
 </html>

@@ -1,5 +1,7 @@
 html, body {
 	height: 100%;
+	background-color: #ccc;
+	margin: 0;
 }
 
 body {
@@ -11,79 +13,82 @@ body, button {
 	font-family: 'Montserrat', sans-serif;
 }
 
-button {
-	border: black 1px solid;
-	background-color: transparent;
-	border-radius: 5px;
-	padding: 5px 8px;
-	transition: border-color 0.3s ease-in-out;
+.main {
+	float: left;
+	height: 100%;
+	width: 70%;
 }
 
-button:hover,
-button:active,
-button:focus {
-	border-color: #00cc99;
-	outline: none;
+.sidebar {
+	float: left;
+	height: 100%;
+	width: 30%;
+	background-color: #eee;
+	position: relative;
 }
 
-.wrapper {
-	max-width: 400px;
-	margin: 0 auto;
+#output-temperature::after {
+	content: '\2103';
+}
+
+#output-temperature {
+	position: absolute;
+	top: 10%;
+	left: 0;
+	right: 0;
+	margin: auto;
 	text-align: center;
-}
-
-.low {
-  color: #00cc99;
-}
-
-.medium {
-  color: #ffdb4d;
-}
-
-.high {
-  color: #ff751a;
+	font-size: 2em;
+	font-weight: bold;
+	color: #00cccc;
 }
 
 .thermometer {
-	height: 300px;
-	width: 10px;
-	border: black 1px solid;
-	position: relative;
+	height: 50%;
+	width: 30px;
+	position: absolute;
+	top: 0;
+	bottom: 5%;
+	right: 0;
+	left: 0;
+	margin: auto;
+	background-color: #00cccc;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
 }
 
 #thermometer-bar {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
-	transition: height 0.3s, background-color 0.3s;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	transition: height 0.3s, background-color 0.7s;
 }
 
-#thermometer-bar.low {
+#thermometer-bar::after {
+	content: '';
+	position: absolute;
+	left: -50%;
+	top: 100%;
+	width: 200%;
+	transform: translateY(-5px);
+	padding-bottom: 200%;
+	border-radius: 50%;
+	transition: background-color 0.7s;
+}
+
+#thermometer-bar.low,
+#thermometer-bar.low::after {
 	background-color: #00cc99;
 }
 
-#thermometer-bar.medium {
-	background-color: #ffdb4d;
+#thermometer-bar.medium,
+#thermometer-bar.medium::after {
+	background-color: #ffcc66;
 }
 
-#thermometer-bar.high {
-	background-color: #ff751a;
-}
-
-.thermostat-main {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
-}
-
-.thermostat-controls button {
-	display: block;
-	margin: 10px auto;
-	width: 70%;
-
-}
-
-.thermostat-controls {
-	flex: 1;
+#thermometer-bar.high,
+#thermometer-bar.high::after {
+	background-color: #ff6666;
 }

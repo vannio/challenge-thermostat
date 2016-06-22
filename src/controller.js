@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var thermostat = new Thermostat();
+  var thermostat = new Thermostat(undefined, 1);
 
   function updateTemperatureOutput() {
     $('#output-temperature').text(thermostat.temperature);
