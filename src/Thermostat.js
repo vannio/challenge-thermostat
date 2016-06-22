@@ -31,7 +31,7 @@ Thermostat.prototype = {
   powerSaveOn: function(){
     this._MAXIMUMTEMP = this._MAX_TEMP_PSM_ON;
     this._psmOn = true;
-    if (this._temperature > this._MAXIMUMTEMP) {
+    if (this._temperature > this._MAXIMUMTEMP){
       return this._temperature = this._MAXIMUMTEMP;
     }
   },

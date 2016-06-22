@@ -5,10 +5,12 @@ $ (document).ready(function(){
   $('#temperature-increase').click(function(){
     thermostat.increase();
     UpdatesTemp();
+    UpdatesEnergy();
   });
   $('#temperature-decrease').click(function(){
     thermostat.decrease();
     UpdatesTemp();
+    UpdatesEnergy();
   });
   $('#temperature-reset').click(function(){
     thermostat.reset();
@@ -24,13 +26,20 @@ $ (document).ready(function(){
     UpdatesPsm('On');
   });
 
-
-
-
   function UpdatesTemp(){
     $('#temperature').text(thermostat.temperature());
   };
   function UpdatesPsm(string){
     $('#power-saving-status').text(string);
+  };
+  function UpdatesEnergy(){
+    $("div").attr('class', thermostat.energyUsage());
+    // if (thermostat.energyUsage() === "low-usage"){
+    //   $('#energy-usage').css({'background-color':'green'});
+    // } else if (thermostat.energyUsage() === "medium-usage"){
+    //   $('#energy-usage').css({'background-color':'yellow'});
+    // } else {
+    //   $('#energy-usage').css({'background-color':'red'});
+    // }
   };
 });
