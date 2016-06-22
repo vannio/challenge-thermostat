@@ -8,7 +8,7 @@ var Thermostat = function(startTemperature, increment){
 
 Thermostat.prototype = {
 	increaseTemperature: function() {
-		if (this.temperature < this._setMaxTemperature()) {		
+		if (this.temperature < this._setMaxTemperature()) {
 			this.temperature += this.DEFAULT_INCREMENT;
 		}
 	},
@@ -17,6 +17,10 @@ Thermostat.prototype = {
     if (this.temperature > this.MIN_TEMPERATURE) {
       this.temperature -= this.DEFAULT_INCREMENT;
     }
+  },
+
+  togglePowerSavingMode: function() {
+    this.powerSavingMode = !this.powerSavingMode
   },
 
   _setMaxTemperature: function() {

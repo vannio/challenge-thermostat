@@ -33,7 +33,7 @@ describe('Thermostat', function(){
 	  	describe('power saving mode switched off', function() {
 
 				it('should not increase the temperature beyond 32oC', function() {
-					thermostat.powerSavingMode = false;
+          thermostat.togglePowerSavingMode();
 					for(var i = 1; i <= 100; i++) {
 						thermostat.increaseTemperature();
 					}
@@ -41,7 +41,7 @@ describe('Thermostat', function(){
 				});
 
 	  	});
-	  		
+
 	  });
 
     describe('#decreaseTemperature', function() {
@@ -59,6 +59,17 @@ describe('Thermostat', function(){
         expect(thermostat.temperature).toEqual(thermostat.MIN_TEMPERATURE);
       });
 
+    });
+
+    describe('#togglePowerSavingMode', function() {
+      it('power saving mode is on by default', function(){
+        expect(thermostat.powerSavingMode).toBe(true);
+      });
+
+      it('should switch power saving mode to off', function(){
+        thermostat.togglePowerSavingMode();
+        expect(thermostat.powerSavingMode).toBe(false);
+      });
     });
 
 	});
