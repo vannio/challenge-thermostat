@@ -7,5 +7,9 @@ var Thermostat = function(startTemperature, increment){
 Thermostat.prototype = {
 	increaseTemperature: function() {
 		this.temperature += this.DEFAULT_INCREMENT;
-	}
+	},
+
+  decreaseTemperature: function() {
+    this.temperature -= this.DEFAULT_INCREMENT;
+  }
 };

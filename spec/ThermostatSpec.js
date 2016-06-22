@@ -18,12 +18,22 @@ describe('Thermostat', function(){
 	  		var expectedTemperature = thermostat.DEFAULT_TEMPERATURE + thermostat.DEFAULT_INCREMENT;
 	  		expect(thermostat.temperature).toEqual(expectedTemperature);
 	  	});
-	  	
+
 	  });
+
+    describe('#decreaseTemperature', function() {
+
+      it('should decrease the tempature by the DEFAULT_INCREMENT', function() {
+        thermostat.decreaseTemperature();
+        var expectedTemperature = thermostat.DEFAULT_TEMPERATURE - thermostat.DEFAULT_INCREMENT;
+        expect(thermostat.temperature).toEqual(expectedTemperature);
+      });
+
+    });
 
 	});
 
-	describe('manual settings', function() {
+	describe('manual settings (start temperature: 15oC, increment: 1oC)', function() {
 
 		beforeEach(function(){
     	thermostat = new Thermostat(15, 1);
@@ -33,13 +43,22 @@ describe('Thermostat', function(){
 	    expect(thermostat.temperature).toEqual(15);
 	  });
 
-		describe('#increaseTemperature', function() {
+    describe('#increaseTemperature', function() {
 
 	  	it('should increase the temperature by 1', function() {
 	  		thermostat.increaseTemperature();
 	  		expect(thermostat.temperature).toEqual(16);
 	  	});
-	  	
+
+	  });
+
+    describe('#decreaseTemperature', function() {
+
+	  	it('should decrease the temperature by 1', function() {
+	  		thermostat.decreaseTemperature();
+	  		expect(thermostat.temperature).toEqual(14);
+	  	});
+
 	  });
 
 	});
