@@ -1,12 +1,13 @@
 $(document).ready(function(){
   var thermostat = new Thermostat();
 
-  function updateTemperatureText() {
+  function updateTemperatureOutput() {
     $('#output-temperature').text(thermostat.temperature);
-    $('#output-temperature').attr('class', thermostat.energyConsumption());
+    $('#output-temperature, #thermometer-bar').attr('class', thermostat.energyConsumption());
+    $('#thermometer-bar').height(thermostat.temperatureConvertToPercentage());
   };
 
-  updateTemperatureText();
+  updateTemperatureOutput();
 
   function updatePowerSavingMode() {
     var powerSavingMode =  thermostat.isPowerSavingOn ? "On" : "Off";
@@ -17,22 +18,22 @@ $(document).ready(function(){
 
   $('#input-increase').on('click', function() {
     thermostat.increaseTemperature();
-    updateTemperatureText();
+    updateTemperatureOutput();
   });
 
   $('#input-decrease').on('click', function() {
     thermostat.decreaseTemperature();
-    updateTemperatureText();
+    updateTemperatureOutput();
   });
 
   $('#input-toggle').on('click', function() {
     thermostat.togglePowerSavingMode();
     updatePowerSavingMode();
-    updateTemperatureText();
+    updateTemperatureOutput();
   });
 
   $('#input-reset').on('click', function() {
     thermostat.reset();
-    updateTemperatureText();
+    updateTemperatureOutput();
   });
 });

@@ -3,9 +3,35 @@
 }
 
 .medium {
-  color: orange;
+  color: yellow;
 }
 
 .high {
   color: red;
+}
+
+.thermometer {
+	height: 300px;
+	width: 10px;
+	border: black 1px solid;
+	position: relative;
+}
+
+#thermometer-bar {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	transition: height 0.3s, background-color 0.3s;
+}
+
+#thermometer-bar.low {
+	background-color: green;
+}
+
+#thermometer-bar.medium {
+	background-color: yellow;
+}
+
+#thermometer-bar.high {
+	background-color: red;
 }

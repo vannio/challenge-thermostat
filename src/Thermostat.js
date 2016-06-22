@@ -44,6 +44,10 @@ Thermostat.prototype = {
   	}
   },
 
+  temperatureConvertToPercentage: function() {
+  	return (this.temperature / 32 * 100 + '%');
+  },
+
   _setMaxTemperature: function() {
   	return this.isPowerSavingOn ? 25 : 32;
   }
