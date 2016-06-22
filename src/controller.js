@@ -1,40 +1,34 @@
 var thermostat = new Thermostat();
-var outputTemperature = document.getElementById("output-temperature");
-var outputPowerSaving = document.getElementById("output-powersaving");
-
-function updatePowerSavingMode() {
-  var powerSavingMode =  thermostat.isPowerSavingOn ? "On" : "Off";
-  outputPowerSaving.innerHTML = powerSavingMode;
-};
-
-updatePowerSavingMode();
 
 function updateTemperatureText() {
-  outputTemperature.innerHTML = thermostat.temperature;
+  $('#output-temperature').text(thermostat.temperature);
 };
 
 updateTemperatureText();
 
-var inputIncrease = document.getElementById("input-increase");
-inputIncrease.onclick = function() {
+function updatePowerSavingMode() {
+  var powerSavingMode =  thermostat.isPowerSavingOn ? "On" : "Off";
+  $('#output-powersaving').text(powerSavingMode);
+};
+
+updatePowerSavingMode();
+
+$('#input-increase').on('click', function() {
   thermostat.increaseTemperature();
   updateTemperatureText();
-};
+});
 
-var inputDecrease = document.getElementById("input-decrease");
-inputDecrease.onclick = function() {
+$('#input-decrease').on('click', function() {
   thermostat.decreaseTemperature();
   updateTemperatureText();
-};
+});
 
-var inputToggle = document.getElementById("input-toggle");
-inputToggle.onclick = function() {
+$('#input-toggle').on('click', function() {
   thermostat.togglePowerSavingMode();
   updatePowerSavingMode();
-};
+});
 
-var inputReset = document.getElementById("input-reset");
-inputReset.onclick = function() {
+$('#input-reset').on('click', function() {
   thermostat.reset();
   updateTemperatureText();
-};
+});
