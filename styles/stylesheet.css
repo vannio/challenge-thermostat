@@ -1,34 +1,71 @@
+*:focus {
+	outline: none;
+}
+
 html, body {
 	height: 100%;
 	background-color: #ccc;
+	background: -webkit-linear-gradient(45deg, #abc1d3 0%,#cccccc 100%);
 	margin: 0;
 }
 
-body {
-	display: flex;
-	align-items: center;
+body, button {
+	color: #444;
+	font-family: 'Baloo', cursive;
 }
 
-body, button {
-	font-family: 'Montserrat', sans-serif;
+.wrapper {
+	max-width: 60%;
+	margin: 0 auto;
 }
 
 .main {
 	float: left;
 	height: 100%;
 	width: 70%;
+	display: flex;
+	align-items: center;
 }
 
 .sidebar {
 	float: left;
 	height: 100%;
 	width: 30%;
-	background-color: #eee;
+	background-color: #00cccc;
+	background: -webkit-linear-gradient(-45deg, #7abcff 0%,#00cccc 100%);
 	position: relative;
 }
 
-#output-temperature::after {
-	content: '\2103';
+button {
+	margin: 0 auto 0.75em;
+	width: 100%;
+	display: block;
+	padding: 5px 10px;
+	background-color: #fff;
+	border: solid 3px #444;
+	font-size: 1.2em;
+	border-radius: 10px;
+	transition: all 0.1s ease-in-out;
+	box-shadow: -6px 6px 0px 0px #444;
+}
+
+button:active {
+	transform: translate(-1px, 4px);
+	box-shadow: -2px 2px 0px 0px #444;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: #00cccc;
+	color: #fff;
+}
+
+button#input-reset:hover {
+	background-color: #ff6666;
+}
+
+.thermostat-controls {
+	margin: 2em auto;
 }
 
 #output-temperature {
@@ -39,8 +76,11 @@ body, button {
 	margin: auto;
 	text-align: center;
 	font-size: 2em;
-	font-weight: bold;
-	color: #00cccc;
+	color: #eee;
+}
+
+#output-temperature::after {
+	content: '\00B0 C';
 }
 
 .thermometer {
@@ -52,7 +92,7 @@ body, button {
 	right: 0;
 	left: 0;
 	margin: auto;
-	background-color: #00cccc;
+	background-color: #eee;
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
 }
@@ -63,7 +103,7 @@ body, button {
 	bottom: 0;
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
-	transition: height 0.3s, background-color 0.7s;
+	transition: height 0.3s, background-color 1s;
 }
 
 #thermometer-bar::after {
@@ -75,12 +115,12 @@ body, button {
 	transform: translateY(-5px);
 	padding-bottom: 200%;
 	border-radius: 50%;
-	transition: background-color 0.7s;
+	transition: background-color 1s;
 }
 
 #thermometer-bar.low,
 #thermometer-bar.low::after {
-	background-color: #00cc99;
+	background-color: #5c85d6;
 }
 
 #thermometer-bar.medium,
