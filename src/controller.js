@@ -26,6 +26,7 @@ $('#input-decrease').on('click', function() {
 $('#input-toggle').on('click', function() {
   thermostat.togglePowerSavingMode();
   updatePowerSavingMode();
+  updateTemperatureText();
 });
 
 $('#input-reset').on('click', function() {

@@ -71,6 +71,13 @@ describe('Thermostat', function(){
         thermostat.togglePowerSavingMode();
         expect(thermostat.isPowerSavingOn).toBe(false);
       });
+      
+      it('if temperature exceeds new max limit, it should adjust', function() {
+      	thermostat.isPowerSavingOn = false;
+      	thermostat.temperature = 32;
+      	thermostat.togglePowerSavingMode();
+      	expect(thermostat.temperature).toEqual(25);
+      });
 
     });
 
@@ -80,6 +87,12 @@ describe('Thermostat', function(){
         thermostat.increaseTemperature();
         thermostat.reset();
         expect(thermostat.temperature).toEqual(thermostat.DEFAULT_TEMPERATURE);
+      });
+
+      it('resets power saving mode to ON', function() {
+      	thermostat.togglePowerSavingMode();
+      	thermostat.reset();
+      	expect(thermostat.isPowerSavingOn).toBe(true);
       });
 
     });

@@ -23,10 +23,14 @@ Thermostat.prototype = {
 
   togglePowerSavingMode: function() {
     this.isPowerSavingOn = !this.isPowerSavingOn
+    if (this.temperature > this._setMaxTemperature()) {
+    	this.temperature = this._setMaxTemperature();
+    }
   },
 
   reset: function() {
     this.temperature = this.DEFAULT_TEMPERATURE;
+    this.isPowerSavingOn = true;
   },
 
   energyConsumption: function() {
