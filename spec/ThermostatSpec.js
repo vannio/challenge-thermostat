@@ -84,6 +84,25 @@ describe('Thermostat', function(){
 
     });
 
+    describe('#energyConsumption', function() {
+
+    	it('should be low when temperature is 18oC or less', function() {
+    		thermostat.temperature = 15;
+    		expect(thermostat.energyConsumption()).toEqual('low');
+    	});
+
+    	it('should be medium when temperature is between 18oC and 25oC', function() {
+    		thermostat.temperature = 20;
+    		expect(thermostat.energyConsumption()).toEqual('medium');
+    	});
+    	
+    	it('should be high when temperature is 25oC or higher', function() {
+    		thermostat.temperature = 25;
+    		expect(thermostat.energyConsumption()).toEqual('high');
+    	});
+
+    });
+
 	});
 
 	describe('manual settings (start temperature: 15oC, increment: 1oC)', function() {

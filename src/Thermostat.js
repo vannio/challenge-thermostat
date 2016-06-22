@@ -29,6 +29,17 @@ Thermostat.prototype = {
     this.temperature = this.DEFAULT_TEMPERATURE;
   },
 
+  energyConsumption: function() {
+  	switch (true) {
+  		case (this.temperature <= 18):
+  			return 'low';
+  		case (this.temperature > 18 && this.temperature < 25):
+  			return 'medium';
+  		case (this.temperature >= 25):
+  			return 'high';
+  	}
+  },
+
   _setMaxTemperature: function() {
   	return this.powerSavingMode ? 25 : 32;
   }
