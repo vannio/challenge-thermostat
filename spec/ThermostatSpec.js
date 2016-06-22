@@ -47,6 +47,11 @@ describe('Thermostat', function(){
       }
       expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
     });
+    it('it sets powersave mode on', function(){
+      thermostat.powerSaveOff();
+      thermostat.powerSaveOn();
+      expect(thermostat.isPowerSaveModeOn()).toEqual(true);
+    });
   });
   describe('#powerSaveOff', function(){
     it('sets the maximum temperature to 32 degrees', function(){
@@ -55,6 +60,10 @@ describe('Thermostat', function(){
         thermostat.increase();
       }
       expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
+    });
+    it('it sets powersave mode off', function(){
+      thermostat.powerSaveOff();
+      expect(thermostat.isPowerSaveModeOn()).toEqual(false);
     });
   });
   describe('#reset', function(){
