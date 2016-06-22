@@ -1,3 +1,5 @@
+'use strict';
+
 var Thermostat = function(startTemperature, increment){
 	this.DEFAULT_TEMPERATURE = startTemperature || 20;
 	this.DEFAULT_INCREMENT = increment || 0.5;
