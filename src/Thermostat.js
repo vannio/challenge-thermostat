@@ -5,7 +5,7 @@ var Thermostat = function(startTemperature, increment){
 	this.DEFAULT_INCREMENT = increment || 0.5;
   this.MIN_TEMPERATURE = 10;
   this.temperature = this.DEFAULT_TEMPERATURE;
-  this.powerSavingMode = true;
+  this.isPowerSavingOn = true;
 };
 
 Thermostat.prototype = {
@@ -22,7 +22,7 @@ Thermostat.prototype = {
   },
 
   togglePowerSavingMode: function() {
-    this.powerSavingMode = !this.powerSavingMode
+    this.isPowerSavingOn = !this.isPowerSavingOn
   },
 
   reset: function() {
@@ -41,7 +41,7 @@ Thermostat.prototype = {
   },
 
   _setMaxTemperature: function() {
-  	return this.powerSavingMode ? 25 : 32;
+  	return this.isPowerSavingOn ? 25 : 32;
   }
 
 };

@@ -64,12 +64,12 @@ describe('Thermostat', function(){
     describe('#togglePowerSavingMode', function() {
 
       it('power saving mode is on by default', function(){
-        expect(thermostat.powerSavingMode).toBe(true);
+        expect(thermostat.isPowerSavingOn).toBe(true);
       });
 
       it('should switch power saving mode to off', function(){
         thermostat.togglePowerSavingMode();
-        expect(thermostat.powerSavingMode).toBe(false);
+        expect(thermostat.isPowerSavingOn).toBe(false);
       });
 
     });
@@ -95,7 +95,7 @@ describe('Thermostat', function(){
     		thermostat.temperature = 20;
     		expect(thermostat.energyConsumption()).toEqual('medium');
     	});
-    	
+
     	it('should be high when temperature is 25oC or higher', function() {
     		thermostat.temperature = 25;
     		expect(thermostat.energyConsumption()).toEqual('high');
