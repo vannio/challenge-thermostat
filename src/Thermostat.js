@@ -15,7 +15,7 @@ Thermostat.prototype = {
     return this._temperature;
   },
   increase: function(){
-    if(this._temperature === this._MAXIMUMTEMP) {
+    if(this._temperature >= this._MAXIMUMTEMP) {
       throw new Error('Cannot increase above maximum temperature');
     } else {
       return this._temperature += 1;
@@ -31,6 +31,9 @@ Thermostat.prototype = {
   powerSaveOn: function(){
     this._MAXIMUMTEMP = this._MAX_TEMP_PSM_ON;
     this._psmOn = true;
+    if (this._temperature > this._MAXIMUMTEMP) {
+      return this._temperature = this._MAXIMUMTEMP;
+    }
   },
   powerSaveOff: function(){
     this._MAXIMUMTEMP = this._MAX_TEMP_PSM_OFF;
