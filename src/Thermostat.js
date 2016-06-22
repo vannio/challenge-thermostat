@@ -23,6 +23,10 @@ Thermostat.prototype = {
     this.powerSavingMode = !this.powerSavingMode
   },
 
+  reset: function() {
+    this.temperature = this.DEFAULT_TEMPERATURE;
+  },
+
   _setMaxTemperature: function() {
   	return this.powerSavingMode ? 25 : 32;
   }

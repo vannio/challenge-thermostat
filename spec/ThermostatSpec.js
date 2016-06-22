@@ -62,6 +62,7 @@ describe('Thermostat', function(){
     });
 
     describe('#togglePowerSavingMode', function() {
+
       it('power saving mode is on by default', function(){
         expect(thermostat.powerSavingMode).toBe(true);
       });
@@ -70,6 +71,17 @@ describe('Thermostat', function(){
         thermostat.togglePowerSavingMode();
         expect(thermostat.powerSavingMode).toBe(false);
       });
+
+    });
+
+    describe('#reset', function(){
+
+      it('resets temperature to DEFAULT_TEMPERATURE', function(){
+        thermostat.increaseTemperature();
+        thermostat.reset();
+        expect(thermostat.temperature).toEqual(thermostat.DEFAULT_TEMPERATURE);
+      });
+
     });
 
 	});
