@@ -4,6 +4,9 @@ function Thermostat(){
   this._temperature = this._DEFAULTTEMP;
   this._MINIMUMTEMP = 10;
   this._MAXIMUMTEMP = 25;
+  this._MAX_TEMP_PSM_ON = 25;
+  this._MAX_TEMP_PSM_OFF = 32;
+  this._MEDIUM_ENERGY_USAGE_LIMIT = 18;
 };
 
 Thermostat.prototype = {
@@ -25,21 +28,21 @@ Thermostat.prototype = {
     }
   },
   powerSaveOn: function(){
-    this._MAXIMUMTEMP = 25;
+    this._MAXIMUMTEMP = this._MAX_TEMP_PSM_ON;
   },
   powerSaveOff: function(){
-    this._MAXIMUMTEMP = 32;
+    this._MAXIMUMTEMP = this._MAX_TEMP_PSM_OFF;
   },
   reset: function(){
     this._temperature = this._DEFAULTTEMP;
   },
-  colour: function(){
-    if(this._temperature < 18){
-      return "green";
-    } else if(this._temperature >= 18 && this._temperature < 25){
-      return "yellow";
+  energyUsage: function(){
+    if(this._temperature < this._MEDIUM_ENERGY_USAGE_LIMIT){
+      return "low-usage";
+    } else if(this._temperature >= this._MEDIUM_ENERGY_USAGE_LIMIT && this._temperature < this._MAX_TEMP_PSM_ON){
+      return "medium-usage";
     } else {
-      return "red";
+      return "high-usage";
     }
   }
 };

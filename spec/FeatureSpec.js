@@ -78,20 +78,20 @@ describe('Feature test', function(){
   // The thermostat should colour the display based on energy usage -
   // < 18 is green, < 25 is yellow, otherwise red
   describe('thermostat output changes based on temperature', function(){
-    it('outputs "green" when temperature is less than 18', function(){
+    it('outputs "low-usage" when temperature is less than 18', function(){
       thermostat.decrease();
       thermostat.decrease();
       thermostat.decrease();
-      expect(thermostat.colour()).toEqual("green");
+      expect(thermostat.energyUsage()).toEqual("low-usage");
     });
-    it('outputs "yellow" when temperature is between than 18 and 24', function(){
-      expect(thermostat.colour()).toEqual("yellow");
+    it('outputs "medium-usage" when temperature is between than 18 and 24', function(){
+      expect(thermostat.energyUsage()).toEqual("medium-usage");
     });
-    it('outputs "red" when temperature is greater than 24', function(){
+    it('outputs "high-usage" when temperature is greater than 24', function(){
       for(var i = 0; i < 5; i++) {
         thermostat.increase();
       }
-      expect(thermostat.colour()).toEqual("red");
+      expect(thermostat.energyUsage()).toEqual("high-usage");
     });
   });
 });
