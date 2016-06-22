@@ -2,6 +2,7 @@
 function Thermostat(){
   this._temperature = 20;
   this._MINIMUMTEMP = 10;
+  this._MAXIMUMTEMP = 25;
 };
 
 Thermostat.prototype = {
@@ -24,5 +25,8 @@ Thermostat.prototype = {
   },
   powerSaveOn: function(){
     this._MAXIMUMTEMP = 25;
+  },
+  powerSaveOff: function(){
+    this._MAXIMUMTEMP = 32;
   }
 };

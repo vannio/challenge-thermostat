@@ -46,4 +46,23 @@ describe('Feature test', function(){
       expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
     });
   });
+  //If power saving mode is off, the maximum temperature is 32 degrees
+  describe('with power saving mode off', function(){
+    it('has a maximum temperature of 32 degrees', function(){
+      thermostat.powerSaveOff();
+      for(var i = 0; i < 12; i++) {
+        thermostat.increase();
+      }
+      expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
+    });
+  });
+  //Power saving mode is on by default
+  describe('power saving mode', function(){
+    it('is on by default', function(){
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
+    });
+  });
 });

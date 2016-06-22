@@ -33,10 +33,25 @@ describe('Thermostat', function(){
     });
   });
 
-  describe('#powerSave,', function(){
+  describe('#powerSaveOn,', function(){
     it('sets the maximum temperature to 25 degrees', function(){
       thermostat.powerSaveOn();
       for(var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
+    });
+    it('is on by default', function(){
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
+    });
+  });
+  describe('#powerSaveOff', function(){
+    it('sets the maximum temperature to 32 degrees', function(){
+      thermostat.powerSaveOff();
+      for(var i = 0; i < 12; i++) {
         thermostat.increase();
       }
       expect(function(){ thermostat.increase(); }).toThrowError('Cannot increase above maximum temperature');
