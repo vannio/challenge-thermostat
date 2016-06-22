@@ -19,6 +19,29 @@ describe('Thermostat', function(){
 	  		expect(thermostat.temperature).toEqual(expectedTemperature);
 	  	});
 
+	  	describe('power saving mode switched on', function() {
+
+				it('should not increase the temperature beyond 25oC', function() {
+					for(var i = 1; i <= 100; i++) {
+						thermostat.increaseTemperature();
+					}
+					expect(thermostat.temperature).toEqual(25);
+				});
+
+	  	});
+
+	  	describe('power saving mode switched off', function() {
+
+				it('should not increase the temperature beyond 32oC', function() {
+					thermostat.powerSavingMode = false;
+					for(var i = 1; i <= 100; i++) {
+						thermostat.increaseTemperature();
+					}
+					expect(thermostat.temperature).toEqual(32);
+				});
+
+	  	});
+	  		
 	  });
 
     describe('#decreaseTemperature', function() {
