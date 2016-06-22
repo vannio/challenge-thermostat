@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   function updatePowerSavingMode() {
     var powerSavingMode =  thermostat.isPowerSavingOn ? "On" : "Off";
-    $('#output-powersaving').text(powerSavingMode);
+    $('#input-toggle').text(powerSavingMode);
   };
 
   updatePowerSavingMode();

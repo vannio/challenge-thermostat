@@ -4,22 +4,30 @@
     <script src="src/Thermostat.js"></script>
     <script src="src/jquery-3.0.0.min.js"></script>
     <script src="src/controller.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link type="text/css" rel="stylesheet" href="./styles/stylesheet.css">
   </head>
   <body>
-    <div id="input">
-      <button id="input-increase">Up</button>
-      <button id="input-decrease">Down</button>
-      <button id="input-toggle">Toggle Power Saving Mode</button>
-      <button id="input-reset">Reset</button>
-    </div>
-    <div id="output">
-      Temperature: <span id="output-temperature"></span>&#x2103;<br>
-      Power Saving Mode: <span id="output-powersaving"></span>
-
-      <div class="thermometer">
-      <div id="thermometer-bar"></div>
+    <div class="wrapper">
+      <div class="thermostat-status">
+        Temperature: <span id="output-temperature"></span>&#x2103;<br>
+        Power Saving Mode: <button id="input-toggle"></button>
       </div>
+
+      <div class="thermostat-main">
+          
+        <div class="thermometer">
+          <div id="thermometer-bar"></div>
+        </div>
+
+        <div class="thermostat-controls">
+          <button id="input-increase">Up</button>
+          <button id="input-decrease">Down</button>
+        </div>
+
+      </div>
+
+      <button id="input-reset">Reset</button>
 
     </div>
   </body>
