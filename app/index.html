@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Thermostat</title>
+  </head>
+
+  <body>
+    <div class="container-weather">
+      <div class="wrapper">
+        <h2 id="output-weather"></h2>
+
+        <form id="location-form">
+          <input type="text" name="location" placeholder="City" autocomplete="off" required>
+          <input type="submit" value="Search">
+        </form>
+
+        <form id="location-select">
+          <select name="location"></select>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+
+    <div class="container-controls">
+      <div class="wrapper">
+        Power Saving Mode
+        <button id="powersaving-toggle">On</button>
+
+        Temperature Controls
+        <button id="thermostat-increase">+</button>
+        <button id="thermostat-decrease">-</button>
+        <button id="thermostat-reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="container-thermometer">
+      <div class="wrapper">
+        <h2 id="output-temperature"></h2>
+        <div id="thermometer">
+          <div id="thermometer-bar" class="medium-usage"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./../keys.js"></script>
+    <script src="./scripts/jquery-3.0.0.min.js"></script>
+    <script src="./scripts/thermostat.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

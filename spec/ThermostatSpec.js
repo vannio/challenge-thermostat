@@ -71,7 +71,7 @@ describe('Thermostat', function(){
         thermostat.togglePowerSavingMode();
         expect(thermostat.isPowerSavingOn).toBe(false);
       });
-      
+
       it('if temperature exceeds new max limit, it should adjust', function() {
       	thermostat.isPowerSavingOn = false;
       	thermostat.temperature = 32;
