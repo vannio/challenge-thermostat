@@ -2,7 +2,8 @@ $ (document).ready(function(){
   //I want to display the temperature in the h1
   var thermostat = new Thermostat();
   $('#temperature').text(thermostat.temperature());
-  updateHeight(thermostat.temperature());
+  updateThermometer(thermostat.temperature());
+
   $('#temperature-increase').click(function(){
     thermostat.increase();
     UpdatesTemp();
@@ -29,13 +30,14 @@ $ (document).ready(function(){
 
   function UpdatesTemp(){
     $('#temperature').text(thermostat.temperature());
-    updateHeight(thermostat.temperature());
+    updateThermometer(thermostat.temperature());
   };
   function UpdatesPsm(string){
     $('#power-saving-status').text(string);
   };
   function UpdatesEnergy(){
     $("#energy-usage").attr('class', thermostat.energyUsage());
+    $("#thermometer-bar").attr('class', thermostat.energyUsage());
   };
 
   $('#location-form').on('submit', function(event){
@@ -75,7 +77,7 @@ $ (document).ready(function(){
     });
   });
 
-  function updateHeight(temperature){
+  function updateThermometer(temperature){
     $('#thermometer-bar').height(temperature / 32 * 100 + '%');
   }
 });

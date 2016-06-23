@@ -21,3 +21,15 @@
   position:absolute;
   bottom: 0;
 }
+
+#thermometer-bar.low-usage {
+  background-color: green;
+}
+
+#thermometer-bar.medium-usage {
+  background-color: yellow;
+}
+
+#thermometer-bar.high-usage {
+  background-color: red;
+}
