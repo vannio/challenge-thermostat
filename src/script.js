@@ -34,12 +34,5 @@ $ (document).ready(function(){
   };
   function UpdatesEnergy(){
     $("div").attr('class', thermostat.energyUsage());
-    // if (thermostat.energyUsage() === "low-usage"){
-    //   $('#energy-usage').css({'background-color':'green'});
-    // } else if (thermostat.energyUsage() === "medium-usage"){
-    //   $('#energy-usage').css({'background-color':'yellow'});
-    // } else {
-    //   $('#energy-usage').css({'background-color':'red'});
-    // }
   };
 });
