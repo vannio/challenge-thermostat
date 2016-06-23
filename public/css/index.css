@@ -2,8 +2,22 @@
   background-color: green;
 }
 .medium-usage {
-  background-color: orange;
+  background-color: yellow;
 }
 .high-usage {
   background-color: red;
+}
+
+#thermometer {
+  width: 30px;
+  height: 300px;
+  border: 1px black solid;
+  position: relative;
+}
+
+#thermometer-bar {
+  width: 100%;
+  border: 1px blue solid;
+  position:absolute;
+  bottom: 0;
 }

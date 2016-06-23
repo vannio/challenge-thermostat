@@ -2,6 +2,7 @@ $ (document).ready(function(){
   //I want to display the temperature in the h1
   var thermostat = new Thermostat();
   $('#temperature').text(thermostat.temperature());
+  updateHeight(thermostat.temperature());
   $('#temperature-increase').click(function(){
     thermostat.increase();
     UpdatesTemp();
@@ -28,6 +29,7 @@ $ (document).ready(function(){
 
   function UpdatesTemp(){
     $('#temperature').text(thermostat.temperature());
+    updateHeight(thermostat.temperature());
   };
   function UpdatesPsm(string){
     $('#power-saving-status').text(string);
@@ -73,4 +75,7 @@ $ (document).ready(function(){
     });
   });
 
+  function updateHeight(temperature){
+    $('#thermometer-bar').height(temperature / 32 * 100 + '%');
+  }
 });
