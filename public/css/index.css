@@ -1,11 +1,53 @@
+
+.wrapper {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #85e0e0;
+}
+
+body, button, input {
+  font-family: 'Baloo', cursive;
+}
+
+button, input[type='submit'] {
+  display: block;
+  background-color: white;
+  border: solid black 3px;
+  border-radius: 7px;
+  font-size: 1.2em;
+  box-shadow: 5px 5px 0px black;
+  margin: 0px auto 5px;
+  width: 100%;
+}
+
+button:active, input[type='submit']:active {
+  box-shadow: 2px 2px 0px black;
+  outline: none;
+  transform: translate(2px, 1px);
+}
+
+button:focus, input[type='submit']:focus {
+  outline: none;
+}
+
+.container-weather,
+.container-controls,
+.container-thermometer {
+  float: left;
+  width: 33.3%;
+}
+
 .low-usage {
-  background-color: green;
+  background-color: #00cc99;
 }
 .medium-usage {
-  background-color: yellow;
+  background-color: #ffcc66;
 }
 .high-usage {
-  background-color: red;
+  background-color: #ff6666;
 }
 
 #thermometer {
@@ -13,7 +55,8 @@
   height: 300px;
   position: relative;
   background-color: grey;
-  left: 100px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
 #thermometer-bar {
@@ -21,21 +64,23 @@
   position:absolute;
   bottom: 0;
   transition: all 1s ease-in-out;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
 #thermometer-bar.low-usage::after,
 #thermometer-bar.low-usage {
-  background-color: green;
+  background-color: #00cc99;
 }
 
 #thermometer-bar.medium-usage::after,
 #thermometer-bar.medium-usage {
-  background-color: yellow;
+  background-color: #ffcc66;
 }
 
 #thermometer-bar.high-usage::after,
 #thermometer-bar.high-usage {
-  background-color: red;
+  background-color: #ff6666;
 }
 
 #thermometer-bar::after {
@@ -44,7 +89,7 @@
   padding-bottom: 200%;
   position: absolute;
   bottom: 0;
-  background-color: yellow;
+  background-color: #ffcc66;
   border-radius: 50%;
   left: -50%;
   transform: translateY(50%);

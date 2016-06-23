@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="public/css/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
   <meta charset="UTF-8">
   <title>Thermostat</title>
   <script src="jquery-3.0.0.js"></script>
@@ -10,34 +11,46 @@
   <script src="src/script.js"></script>
 </head>
 <body>
-  <h1 id='temperature'></h1>
-  <p>
-    <button id="temperature-increase">+</button>
-    <button id="temperature-decrease">-</button>
-    <button id="temperature-reset">reset</button>
-    power saving mode is <span id="power-saving-status">On</span>
-    <button id="powersaving-on">psm on</button>
-    <button id="powersaving-off">psm off</button>
-  </p>
+  <div class='container-weather'>
+    <div class='wrapper'>
+      <form id="location-form">
+        <input type="text" name="location" placeholder="City" autocomplete="off">
+        <input type="submit" value="Submit">
+      </form>
 
-  <div id="energy-usxage" style="height:100px; width:100px" class="medium-usage">
-    <h3>Energy Usage</h3>
+      <form id="location-select">
+        <select name="location"></select>
+        <input type="submit" value="Submit">
+      </form>
+
+      <div id="weather"></div>
+    </div>
   </div>
 
-  <form id="location-form">
-    <input type="text" name="location" placeholder="City">
-    <input type="submit" value="Submit">
-  </form>
+  <div class='container-controls'>
+    <div class='wrapper'>
+      <button id="temperature-increase">+</button>
+      <button id="temperature-decrease">-</button>
+      <button id="temperature-reset">reset</button>
+      power saving mode is <span id="power-saving-status">On</span>
+      <button id="powersaving-on">psm on</button>
+      <button id="powersaving-off">psm off</button>
 
-  <form id="location-select">
-    <select name="location"></select>
-    <input type="submit" value="Submit">
-  </form>
-
-  <div id="weather"></div>
-  <div id="thermometer">
-    <div id="thermometer-bar" class="medium-usage"></div>
+      <div id="energy-usxage" style="height:100px; width:100px" class="medium-usage">
+        <h3>Energy Usage</h3>
+      </div>
+    </div>
   </div>
+
+  <div class='container-thermometer'>
+    <div class='wrapper'>
+      <h1 id='temperature'></h1>
+      <div id="thermometer">
+        <div id="thermometer-bar" class="medium-usage"></div>
+      </div>
+    </div>
+  </div>
+
   <script src="src/thermostat.js"></script>
 </body>
 </html>
