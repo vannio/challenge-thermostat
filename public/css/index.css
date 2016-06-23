@@ -11,25 +11,42 @@
 #thermometer {
   width: 30px;
   height: 300px;
-  border: 1px black solid;
   position: relative;
+  background-color: grey;
+  left: 100px;
 }
 
 #thermometer-bar {
   width: 100%;
-  border: 1px blue solid;
   position:absolute;
   bottom: 0;
+  transition: all 1s ease-in-out;
 }
 
+#thermometer-bar.low-usage::after,
 #thermometer-bar.low-usage {
   background-color: green;
 }
 
+#thermometer-bar.medium-usage::after,
 #thermometer-bar.medium-usage {
   background-color: yellow;
 }
 
+#thermometer-bar.high-usage::after,
 #thermometer-bar.high-usage {
   background-color: red;
+}
+
+#thermometer-bar::after {
+  content: '';
+  width: 200%;
+  padding-bottom: 200%;
+  position: absolute;
+  bottom: 0;
+  background-color: yellow;
+  border-radius: 50%;
+  left: -50%;
+  transform: translateY(50%);
+  transition: all 1s ease-in-out;
 }
