@@ -26,6 +26,12 @@ select {
   font-family: "Baloo", cursive;
 }
 
+button,
+input,
+select {
+  max-width: 200px;
+}
+
 input,
 select {
   width: 100%;
@@ -33,6 +39,10 @@ select {
   border: solid #444 3px;
   border-radius: 7px;
   margin-bottom: 0.5em;
+}
+
+select {
+  margin-top: 1em;
 }
 
 button,
@@ -45,7 +55,6 @@ input[type="submit"] {
   box-shadow: -5px 5px 0px #444;
   margin: 0 auto 0.5em;
   width: 100%;
-  max-width: 150px;
 }
 
 button:hover,
@@ -76,7 +85,8 @@ button#thermostat-reset:hover {
 
 .container-weather,
 .container-controls,
-.container-thermometer {
+.container-thermometer-outdoors,
+.container-thermometer-indoors {
   float: left;
   height: 100%;
 }
@@ -86,23 +96,34 @@ button#thermostat-reset:hover {
   display: flex;
   align-items: center;
   text-align: center;
-  width: 35%;
+  width: 30%;
+  position: relative;
 }
 
-.container-thermometer {
+.container-thermometer-outdoors,
+.container-thermometer-indoors {
   background-color: #33cccc;
   background: linear-gradient(45deg, #7abcff 0%,#33cccc 100%);
   color: #eee;
   position: relative;
   text-align: center;
-  width: 30%;
+  width: 20%;
 }
 
-#output-temperature::after {
+.controls-title,
+.thermometer-title {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 5%;
+}
+
+.thermometer-title::after {
   content: "\00B0 C";
 }
 
-#thermometer {
+.thermometer {
   width: 30px;
   height: 50%;
   margin: auto;
@@ -116,39 +137,46 @@ button#thermostat-reset:hover {
   border-top-right-radius: 100px;
 }
 
-#thermometer-bar {
+#thermometer-bar-indoors,
+#thermometer-bar-outdoors {
   width: 100%;
   position:absolute;
   bottom: 0;
-  transition: all 1s ease-in-out;
+  height: 0;
+  transition: height 0.3s, background-color 1s ease-in-out;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
 }
 
-#thermometer-bar.low-usage::after,
-#thermometer-bar.low-usage {
+#thermometer-bar-indoors.low-usage::after,
+#thermometer-bar-indoors.low-usage {
   background-color: #6699ff;
 }
 
-#thermometer-bar.medium-usage::after,
-#thermometer-bar.medium-usage {
+#thermometer-bar-indoors.medium-usage::after,
+#thermometer-bar-indoors.medium-usage {
   background-color: #ffcc66;
 }
 
-#thermometer-bar.high-usage::after,
-#thermometer-bar.high-usage {
+#thermometer-bar-indoors.high-usage::after,
+#thermometer-bar-indoors.high-usage {
   background-color: #ff6666;
 }
 
-#thermometer-bar::after {
+#thermometer-bar-indoors::after,
+#thermometer-bar-outdoors::after {
   content: "";
   width: 200%;
   padding-bottom: 200%;
   position: absolute;
   bottom: 0;
-  background-color: #ffcc66;
   border-radius: 50%;
   left: -50%;
   transform: translateY(50%);
   transition: all 1s ease-in-out;
+}
+
+#thermometer-bar-outdoors,
+#thermometer-bar-outdoors::after {
+  background-color: #ffcc66;
 }

@@ -1,11 +1,11 @@
 $(document).ready(function(){
   var thermostat = new Thermostat(undefined, 1);
+  $('#location-select').hide();
 
   function updateTemperatureOutput() {
     $('#output-temperature').text(thermostat.temperature);
-    $('#thermometer-bar').attr('class', thermostat.energyConsumption() + "-usage");
-    $('#thermometer-bar').height(thermostat.temperature / 32 * 100 + '%');
-    $('#location-select').hide();
+    $('#thermometer-bar-indoors').attr('class', thermostat.energyConsumption() + "-usage");
+    $('#thermometer-bar-indoors').height(thermostat.temperature / 32 * 100 + '%');
   };
 
   updateTemperatureOutput();
@@ -69,12 +69,13 @@ $(document).ready(function(){
   $('#location-select').on('submit', function(event){
     event.preventDefault();
     var query = $(event.currentTarget).serializeArray();
+    var wundergroundID = "9565f9e305247628";
     var url = 'http://api.wunderground.com/api/' + wundergroundID + '/conditions/' + query[0].value + '.json';
 
     $.get(url, function(data){
-      var weather = data.current_observation.weather;
       var temperature = data.current_observation.feelslike_c;
-      $('#output-weather').text(weather + ', ' + temperature + "°C");
+      $('#output-weather').text(temperature);
+      $('#thermometer-bar-outdoors').height(temperature / 50 * 100 + '%');
     });
   });
 });

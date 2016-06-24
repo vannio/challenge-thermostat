@@ -8,10 +8,18 @@
   </head>
 
   <body>
+    <div class="container-thermometer-outdoors">
+      <div class="wrapper">
+        <h2 class="thermometer-title">Outdoors: <span id="output-weather"></span></h2>
+        <div class="thermometer">
+          <div id="thermometer-bar-outdoors"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="container-weather">
       <div class="wrapper">
-        <h2 id="output-weather"></h2>
-
+        <h2 class="controls-title">Weather</h2>
         <form id="location-form">
           <input type="text" name="location" placeholder="City" autocomplete="off" required>
           <input type="submit" value="Search">
@@ -26,6 +34,7 @@
 
     <div class="container-controls">
       <div class="wrapper">
+        <h2 class="controls-title">Thermostat</h2>
         Power Saving Mode
         <button id="powersaving-toggle">On</button>
 
@@ -36,16 +45,15 @@
       </div>
     </div>
 
-    <div class="container-thermometer">
+    <div class="container-thermometer-indoors">
       <div class="wrapper">
-        <h2 id="output-temperature"></h2>
-        <div id="thermometer">
-          <div id="thermometer-bar" class="medium-usage"></div>
+        <h2 class="thermometer-title">Indoors: <span id="output-temperature"></span></h2>
+        <div class="thermometer">
+          <div id="thermometer-bar-indoors" class="medium-usage"></div>
         </div>
       </div>
     </div>
 
-    <script src="./../keys.js"></script>
     <script src="./scripts/jquery-3.0.0.min.js"></script>
     <script src="./scripts/thermostat.js"></script>
     <script src="./scripts/main.js"></script>
